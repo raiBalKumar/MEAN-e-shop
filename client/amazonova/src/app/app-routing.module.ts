@@ -1,3 +1,4 @@
+import { CategoriesComponent } from './categories/categories.component';
 import { AddressComponent } from './address/address.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AuthGuardService } from './auth-guard.service';
@@ -39,6 +40,11 @@ const routes: Routes = [
     path: 'profile/address',
     component: AddressComponent,
     canActivate: [AuthGuardService]
+  },
+  {
+    path: 'categories',
+    component: CategoriesComponent,
+    
   },
   {
     path: '**',

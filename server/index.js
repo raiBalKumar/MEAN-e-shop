@@ -23,10 +23,12 @@ app.use(morgan('dev'));
 app.use(cors());
 
 const userRoutes = require('./routes/account');
-const mianRoutes = require('./routes/main');
+const mainnRoutes = require('./routes/main');
+const sellerRoutes = require('./routes/seller')
 
-app.use('/api', mianRoutes);
+app.use('/api', mainnRoutes);
 app.use('/api/accounts', userRoutes);
+app.use('/api/seller', sellerRoutes);
 
 app.listen(port, ()=>{
     console.log(`Server listening on port ${port}`);
