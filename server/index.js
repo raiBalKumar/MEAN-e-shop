@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
+
 const config = require('./config');
 
 const app = express();
@@ -23,10 +24,10 @@ app.use(morgan('dev'));
 app.use(cors());
 
 const userRoutes = require('./routes/account');
-const mainnRoutes = require('./routes/main');
+const mainRoutes = require('./routes/main');
 const sellerRoutes = require('./routes/seller')
 
-app.use('/api', mainnRoutes);
+app.use('/api', mainRoutes);
 app.use('/api/accounts', userRoutes);
 app.use('/api/seller', sellerRoutes);
 

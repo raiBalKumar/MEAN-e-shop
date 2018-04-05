@@ -23,6 +23,8 @@ import { AddressComponent } from './address/address.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { PostProductComponent } from './post-product/post-product.component';
 import { MyproductsComponent } from './myproducts/myproducts.component';
+import { CategoryComponent } from './category/category.component';
+import { ProductComponent } from './product/product.component';
 
 
 
@@ -38,7 +40,9 @@ import { MyproductsComponent } from './myproducts/myproducts.component';
     AddressComponent,
     CategoriesComponent,
     PostProductComponent,
-    MyproductsComponent
+    MyproductsComponent,
+    CategoryComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { CategoryComponent } from './category/category.component';
 import { MyproductsComponent } from './myproducts/myproducts.component';
 import { PostProductComponent } from './post-product/post-product.component';
 import { CategoriesComponent } from './categories/categories.component';
@@ -10,6 +11,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ProductComponent } from './product/product.component';
 
 
 const routes: Routes = [
@@ -57,6 +59,14 @@ const routes: Routes = [
     path: 'categories',
     component: CategoriesComponent,
     
+  },
+  {
+    path: 'categories/:id',
+    component: CategoryComponent
+  },
+  {
+    path: 'product/:id',
+    component: ProductComponent
   },
   {
     path: '**',
