@@ -11,6 +11,14 @@ import { Component, OnInit } from '@angular/core';
 export class ProductComponent implements OnInit {
   product: any;
 
+  myReview = {
+    title: '',
+    description: '',
+    rating: 0
+  };
+
+  btnDisabled = false;
+
   constructor(private activatedRoute: ActivatedRoute,
               private data: DataService,
               private rest: RestApiService,
@@ -26,6 +34,25 @@ export class ProductComponent implements OnInit {
           })
           .catch(err => this.data.error(err['message']));
     });
+  }
+
+  async postReview(){
+    this.btnDisabled = true;
+    try {
+          const data = await this.rest.post('http://localhost:3030/api/review',
+        {
+          productId: this.product._id,
+          title:  this.myReview.title,
+          description: this.myReview.description,
+          rating: this.myReview.rating
+        });
+        data['success']
+          ? this.data.success(data['message'])
+          : this.data.error(data['message']);
+    } catch(err){
+      this.data.error(err['message']);
+    }
+    this.btnDisabled = false;
   }
 
 }
