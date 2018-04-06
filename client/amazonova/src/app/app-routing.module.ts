@@ -1,3 +1,4 @@
+import { SearchComponent } from './search/search.component';
 import { CategoryComponent } from './category/category.component';
 import { MyproductsComponent } from './myproducts/myproducts.component';
 import { PostProductComponent } from './post-product/post-product.component';
@@ -67,6 +68,10 @@ const routes: Routes = [
   {
     path: 'product/:id',
     component: ProductComponent
+  },
+  {
+    path: 'search',
+    component: SearchComponent
   },
   {
     path: '**',

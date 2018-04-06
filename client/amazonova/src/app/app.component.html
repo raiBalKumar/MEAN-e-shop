@@ -11,7 +11,7 @@
       <div class="input-group w-75">
         <input type="text" name="search" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()">
         <span id="searchBtn" class="bg-warning">
-          <i class="fa fa-search"></i>
+          <i class="fa fa-search" (click)="search()"></i>
         </span>
       </div>
       <div class="w-100">

@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "algoliasearch": "^3.26.0",
     "async": "^2.6.0",
     "aws-sdk": "^2.219.1",
     "bcrypt-nodejs": "0.0.3",
@@ -19,6 +20,7 @@
     "jsonwebtoken": "^8.2.0",
     "knex": "^0.14.4",
     "mongoose": "^5.0.12",
+    "mongoose-algolia": "^1.7.1",
     "mongoose-deep-populate": "^3.1.1",
     "morgan": "^1.9.0",
     "multer": "^1.3.0",

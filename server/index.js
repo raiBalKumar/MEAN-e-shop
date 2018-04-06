@@ -25,11 +25,13 @@ app.use(cors());
 
 const userRoutes = require('./routes/account');
 const mainRoutes = require('./routes/main');
-const sellerRoutes = require('./routes/seller')
+const sellerRoutes = require('./routes/seller');
+const productSearchRoutes = require('./routes/product-search');
 
 app.use('/api', mainRoutes);
 app.use('/api/accounts', userRoutes);
 app.use('/api/seller', sellerRoutes);
+app.use('/api/search', productSearchRoutes);
 
 app.listen(port, ()=>{
     console.log(`Server listening on port ${port}`);

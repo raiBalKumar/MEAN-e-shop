@@ -25,6 +25,7 @@ import { PostProductComponent } from './post-product/post-product.component';
 import { MyproductsComponent } from './myproducts/myproducts.component';
 import { CategoryComponent } from './category/category.component';
 import { ProductComponent } from './product/product.component';
+import { SearchComponent } from './search/search.component';
 
 
 
@@ -42,7 +43,8 @@ import { ProductComponent } from './product/product.component';
     PostProductComponent,
     MyproductsComponent,
     CategoryComponent,
-    ProductComponent
+    ProductComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
