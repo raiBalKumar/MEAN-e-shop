@@ -1,9 +1,11 @@
 const router = require('express').Router();
 const async = require('async');
+const stripe = require('stripe')('sk_test_zDI6D13mBYt45TPogfaD21OI');
 
 const Category = require('../models/category');
 const Product = require('../models/product');
 const Review = require('../models/review');
+const Order = require('../models/order');
 
 const checkJWT = require('../middlewares/check-jwt');
 
@@ -153,6 +155,43 @@ router.post('/review', checkJWT, (req, res, next) => {
            });
         }
     ]);
+});
+
+router.post('/payment', checkJWT, (req, res, next)=>{
+    const stripeToken = req.body.stripeToken;
+    const currentCharges = Math.round(req.body.totalPrice * 100);
+
+    stripe.customers
+        .create({
+            source: stripeToken.id
+        })
+        .then(function(customer){
+            return stripe.charges.create({
+                amount: currentCharges,
+                currency: 'usd',
+                customer: customer.id
+            });
+        })
+        .then(function(charge){
+            const products = req.body.products;
+
+            let order = new Order();
+            order.owner = req.decoded.user._id;
+            order.totalPrice = currentCharges;
+
+            products.map(product => {
+                order.product.push({
+                    product: product.product,
+                    quantity: product.quantity
+                });
+            });
+
+            order.save();
+            res.json({
+                success: true,
+                message: "Successfully made a payment"
+            })
+        });
 });
 
 module.exports = router;
