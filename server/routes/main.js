@@ -180,7 +180,7 @@ router.post('/payment', checkJWT, (req, res, next)=>{
             order.totalPrice = currentCharges;
 
             products.map(product => {
-                order.product.push({
+                order.products.push({
                     product: product.product,
                     quantity: product.quantity
                 });

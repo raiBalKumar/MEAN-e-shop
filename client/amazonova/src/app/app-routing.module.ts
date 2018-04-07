@@ -1,3 +1,4 @@
+import { CartComponent } from './cart/cart.component';
 import { SearchComponent } from './search/search.component';
 import { CategoryComponent } from './category/category.component';
 import { MyproductsComponent } from './myproducts/myproducts.component';
@@ -72,6 +73,10 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchComponent
+  },
+  {
+    path: 'cart',
+    component: CartComponent
   },
   {
     path: '**',
